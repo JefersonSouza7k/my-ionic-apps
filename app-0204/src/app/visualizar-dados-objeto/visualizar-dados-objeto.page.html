@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Visualizar dados do Objeto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{objRetornado.nome}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label>Sexo</ion-label>
+        <ion-label>{{objRetornado.sexo}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Telefone</ion-label>
+        <ion-label>{{objRetornado.telefone}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Matrícula</ion-label>
+        <ion-label>{{objRetornado.matricula}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Bilingue</ion-label>
+        <ion-label>{{objRetornado.alunoBilingue ? 'Sim' : 'Não'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Cursos</ion-label>
+        <ion-label>{{objRetornado.cursosTecnologia}}</ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

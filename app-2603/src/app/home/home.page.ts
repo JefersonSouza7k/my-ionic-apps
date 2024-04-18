@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private route: Router) {}
+
+  abrirFormulario(){
+    this.route.navigate(['../form-cadastrar-aluno']);
+  }
+
+  visualizarDados(){
+    this.route.navigate(['../form-visualizar-dados'])
+  }
+
 
 }

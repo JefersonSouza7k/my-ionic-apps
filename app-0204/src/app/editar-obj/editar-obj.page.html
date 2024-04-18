@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Objeto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="salvar(form)">
+
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input name="nome" [(ngModel)]="obj.nome" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input name="telefone" [(ngModel)]="obj.telefone" type="tel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" [(ngModel)]="obj.matricula" type="text" required>Matrícula</ion-label>
+      <ion-input name="matricula" [(ngModel)]="obj.matricula" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Aluno Bilingue</ion-label>
+      <ion-toggle name="alunoBilingue" [(ngModel)]="obj.alunoBilingue"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cursos de Tecnologia</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>HTML</ion-label>
+      <!--
+          <ion-checkbox *ngIf="obj.cursos[]" checked="true" slot="start"></ion-checkbox>        
+          <ion-checkbox *ngIf="!obj.cursos[0]" checked="false" slot="start"></ion-checkbox>
+          -->
+    </ion-item>
+    <ion-item>
+      <ion-label>PHP</ion-label>
+      <!--
+          <ion-checkbox *ngIf="obj.cursos[1]" checked="true" slot="start"></ion-checkbox>        
+          <ion-checkbox *ngIf="!obj.cursos[1]" checked="false" slot="start"></ion-checkbox> 
+          -->
+    </ion-item>
+    <ion-item>
+      <ion-label>C#</ion-label>
+      <!--
+          <ion-checkbox *ngIf="obj.cursos[2]" checked="true" slot="start"></ion-checkbox>        
+          <ion-checkbox *ngIf="!obj.cursos[2]" checked="false" slot="start"></ion-checkbox> 
+          -->
+    </ion-item>
+
+    <ion-button type="submit" expand="block" [disable]="!form.valid">Salvar</ion-button>
+
+  </form>
+</ion-content>

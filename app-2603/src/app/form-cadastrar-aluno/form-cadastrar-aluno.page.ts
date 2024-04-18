@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DadosService } from '../service/dados.service';
 
 @Component({
   selector: 'app-form-cadastrar-aluno',
@@ -14,39 +16,36 @@ export class FormCadastrarAlunoPage implements OnInit {
     telefone: '',
     matricula: '',
     aluno_bilingue: false,
-    curso_tec: [] as string[]
-  }
+    curso_tec: [] 
+  };
 
-  constructor() { }
+  constructor(public dados : DadosService, public route : Router) { }
 
-  ngOnInit() {
-  }
-
-  cadastrar(form: NgForm){
+  salvar(form: NgForm){
     if(form.valid){
-      this.cadastro.curso_tec = [];
-      const checkboxes = document.querySelectorAll<HTMLInputElement>('ion-checkbox');
-      checkboxes.forEach((checkbox) => {
-        if(checkbox.checked){
-          this.cadastro.curso_tec.push(checkbox.value)
-        }
-      });
-      console.log("Dados: ", this.cadastro)
-
-      /*
-      this.cadastro.nome = '';
-      this.cadastro.genero = '';
-      this.cadastro.telefone = '';
-      this.cadastro.matricula = '';
-      this.cadastro.aluno_bilingue = false;
+      //adiciona os dados do formulário ao array de dados armazenados
+      console.log("Dados do Cadastro: ", this.cadastro);
+      this.dados.adicionarDados(this.cadastro);
       
-      checkboxes.forEach((checkbox) => {
-        checkbox.checked = false;
-      });
-      */
+
+      //limpa o formulario após salvar
+      this.limpaFormulario();
+      this.route.navigate(['/home'])
     } else {
-      console.log("Formulário inválido!")
+      console.error('Formulário inválido. Verifique os campos');
     }
+  }
+
+  limpaFormulario(){
+    this.cadastro.nome = '';
+    this.cadastro.genero = '';
+    this.cadastro.telefone = '';
+    this.cadastro.matricula = '';
+    this.cadastro.aluno_bilingue = false;
+    this.cadastro.curso_tec = [];
+  }
+  
+  ngOnInit() {
   }
 
 }

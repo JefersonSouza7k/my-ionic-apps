@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'form-cadastrar-aluno',
     loadChildren: () => import('./form-cadastrar-aluno/form-cadastrar-aluno.module').then( m => m.FormCadastrarAlunoPageModule)
   },
+  {
+    path: 'form-visualizar-dados',
+    loadChildren: () => import('./form-visualizar-dados/form-visualizar-dados.module').then( m => m.FormVisualizarDadosPageModule)
+  },
 ];
 
 @NgModule({

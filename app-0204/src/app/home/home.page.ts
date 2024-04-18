@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage {
+
+  constructor(public rota : Router) {}
+
+  formulario(){
+    this.rota.navigate(['/form-cadastro'])
+  }
+
+  listar(){
+    this.rota.navigate(['/listar-dados'])
+  }
+
+  visualizar(){
+    this.rota.navigate(['visualizar-dados-objeto'])
+  }
+}
